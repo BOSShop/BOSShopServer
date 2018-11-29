@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <Reference Include="GUNet">
-      <HintPath>..\..\..\..\Libraries\GUNet.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\GUNet.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -32,10 +32,32 @@ namespace BOSShopServer
 
             AttributeManager.AddClass(new ClientCommunicator());
 
+            new Thread(InputThread).Start();
+
             while (true)
             {
                 Server.HandleNetworkingData();
                 Console.Title = "Server - " + Server.Clients.Count;
+                Thread.Sleep(1);
+            }
+        }
+
+        static void InputThread()
+        {
+            string input = "";
+            
+            while(input != "exit")
+            {
+                input = Console.ReadLine();
+
+                if(input == "update")
+                {
+                    foreach(int id in Server.Clients.Keys)
+                    {
+                        Server.SendTo(id, "SUpdate");
+                    }
+                }
+
                 Thread.Sleep(1);
             }
         }
